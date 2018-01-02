@@ -1,0 +1,64 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Nodes Remover 1.0.0</title>
+    <link href="bootstrap-4.0.0-beta.3.min.css" rel="stylesheet" />
+
+    <style type="text/css">
+      html {
+        width: 272px;
+      }
+      body {
+        margin: 10px;
+        white-space: nowrap;
+        font-size: 12px;
+      }
+      
+      body .btn-sm:first-of-type {
+        margin-right: 1em;
+      }
+      body .btn-sm {
+        width: 46%;
+        font-size: 12px;
+      }
+
+      .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .xcontainer {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid text-center">
+      <form id="submit">
+        <p for="nodes">Nodes to remove</p>
+        <div class="form-group input-group input-group-sm">
+          <input type="text" id="nodes" class="form-control" placeholder="css selectors separated by comma">
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-sm">Remove</button>
+        <button id="clear" type="button" class="btn btn-outline-warning btn-sm">Clear</button>
+      </form>
+    </div>
+  </body>
+</html>
